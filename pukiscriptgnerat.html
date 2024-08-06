@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0029)https://gotoxa.com/dashboard/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TEAM-PUKIMAK</title>
+<link href="./pukiscriptgnerat_files/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<script src="./pukiscriptgnerat_files/bootstrap.bundle.min.js.download" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+<div class="card shadow p-3 mb-5 bg-body-tertiary rounded mt-5">
+<h5 class="card-header">PUKIMAK IMAGE TOOLS</h5>
+<div class="card-body">
+<div class="mb-3">
+<label for="URLlink" class="form-label">SMARTLINK URL</label>
+<input type="text" class="form-control" id="URLlink" placeholder="">
+</div>
+<div class="mb-3">
+<label for="judul" class="form-label">TITLE</label>
+<input type="text" class="form-control" id="judul" placeholder="">
+</div>
+<div class="mb-3">
+<label for="deskripsi" class="form-label">DESCRIPTION</label>
+<textarea class="form-control" id="deskripsi" rows="3" style="height: 17px;"></textarea>
+</div>
+<div class="mb-3">
+<label for="URLgambar" class="form-label">IMAGE URL</label>
+<input type="text" class="form-control" id="URLgambar" placeholder="">
+</div>
+<div class="mb-3">
+<label for="domain" class="form-label">BOOTSTRAP</label>
+<select class="form-select" aria-label="" id="domain">
+<option value="fisbar.com">RANDOM 1</option>
+<option value="hamsayo.com">RANDOM 2</option>
+</select>
+</div>
+<div class="shadow-sm p-3 mb-5 bg-body-tertiary rounded" id="hasil"><a href="https://s3.amazonaws.com/i.snag.gy/YaMdvl.jpg" target="_blank">CREATED WITH 🖕 BY PUKIMAK</a></div>
+<label for="gen50" class="form-label">TAP 2X + CTRL - X</label>
+<textarea class="form-control" id="gen50" rows="10" style="height: 17px;"></textarea>
+</div>
+</div>
+</div>
+<script>
+        document.querySelector("#URLlink").addEventListener("change", function() {
+            // console.log(this.value);
+            go();
+        });
+        document.querySelector("#judul").addEventListener("change", function() {
+            // console.log(this.value);
+            go();
+        });
+        document.querySelector("#deskripsi").addEventListener("change", function() {
+            // console.log(this.value);
+            go();
+        });
+        document.querySelector("#domain").addEventListener("change", function() {
+            // console.log(this.value);
+            go();
+        });
+        document.querySelector("#URLgambar").addEventListener("change", function() {
+            // console.log(this.value);
+            go();
+        });
+
+        function gen() {
+            var a = {
+                // a: Math.random().toString(36).slice(-10),
+                link: document.querySelector("#URLlink").value,
+                title: document.querySelector("#judul").value,
+                desc: document.querySelector("#deskripsi").value,
+                pic: document.querySelector("#URLgambar").value,
+            }
+            var b = btoa(Math.random().toString(36).slice(-10) + JSON.stringify(a));
+            var d = Math.random().toString(36).slice(-6);
+            var c = 'https://' + d + '.' + document.querySelector("#domain").value + '/' + b;
+            //document.querySelector("#hasil").innerHTML = '<a href="' + c + '" target="_blank">' + c + '</a>';
+            return c;
+        }
+        function go(){
+            document.querySelector("#hasil").innerHTML = '<a href="' + gen() + '" target="_blank">' + gen() + '</a>';
+            document.querySelector("#gen50").value = "";
+            for(var i=0; i<50;i++){
+                document.querySelector("#gen50").value = document.querySelector("#gen50").value + gen() + "\n";
+            }
+        }
+    </script>
+
+</body></html>
